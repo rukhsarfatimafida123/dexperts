@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Play Button Styling */
+.play-wrapper {
+  position: relative;
+  width: 90px;
+  height: 90px;
+}
+
+/* Expanding White Ripple */
+.play-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 60%;
+  border: 8px solid white;
+  animation: ripple 1.5s infinite ease-out;
+}
+
+/* Main Orange Button */
+.play-btn {
+  width: 90px;
+  height: 90px;
+  background: #ff3c00;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Triangle */
+.triangle {
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 18px solid white;
+  margin-left: 6px;
+}
+
+/* Ripple Animation */
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  70% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
