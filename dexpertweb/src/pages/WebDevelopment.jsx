@@ -1,9 +1,10 @@
-const WebDevelopment = () => {
-  return (
-    <div className="py-20 text-center">
-      <h1 className="text-4xl font-bold">Web Development</h1>
-    </div>
-  )
-}
+import React from "react";
+import WebDevelopmentPage from "../components/WebDevelopmentPage"
 
-export default WebDevelopment
+const WebDevelopment= () => {
+  return <WebDevelopmentPage />;
+};
+
+export default WebDevelopment;
+
+

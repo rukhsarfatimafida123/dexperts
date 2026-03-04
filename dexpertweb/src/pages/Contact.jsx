@@ -1,9 +1,8 @@
-const Contact = () => {
-  return (
-    <div className="py-20 text-center">
-      <h1 className="text-4xl font-bold">Contact</h1>
-    </div>
-  )
-}
+import React from "react";
+import ContactPage from "../components/ContactPage";
 
-export default Contact
+const Contact = () => {
+  return <ContactPage />;
+};
+
+export default Contact;
