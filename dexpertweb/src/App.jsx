@@ -34,22 +34,28 @@ import Footer from "./components/Footer"
 import Home from "./pages/Home"
 import Visa from "./pages/Visa"
 import WebDevelopment from "./pages/WebDevelopment"
-import GraphicDesign from "./pages/GraphicDesign"
+import DigitalProducts from "./pages/DigitalProducts"
 import Blogs from "./pages/Blogs"
 import Contact from "./pages/Contact"
+import VisaDetails from "./pages/VisaDetails"
+import ApplyVisa from "./pages/ApplyVisa"
+import ScrollToTop from "./components/ScrollToTop"; 
 
 function App() {
   return (
     <>
       <Navbar />
+      <ScrollToTop /> 
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/visa" element={<Visa />} />
         <Route path="/web-development" element={<WebDevelopment />} />
-        <Route path="/graphic-design" element={<GraphicDesign />} />
+        <Route path="/digital-products" element={<DigitalProducts />} />
         <Route path="/Blogs" element={<Blogs />} />
         <Route path="/Contact" element={<Contact />} />
+        <Route path="/visa-details/:visaType" element={<VisaDetails />} />
+        <Route path="/apply/:visaType" element={<ApplyVisa />} />
       </Routes>
 
       <Footer />
