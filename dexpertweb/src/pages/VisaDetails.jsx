@@ -2,8 +2,8 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getVisaById } from '../data/visaData';
 
-// Import hero image (adjust path as needed)
-import visaHeroImg from '../assets/hero2.jpg'; // Aap apni image yahan use karein
+// Import hero image
+import visaHeroImg from '../assets/hero2.jpg';
 
 const VisaDetails = () => {
   const { visaType } = useParams();
@@ -22,7 +22,6 @@ const VisaDetails = () => {
     );
   }
 
-  // Helper function to get icon based on key
   const getKeyIcon = (key) => {
     switch(key) {
       case 'Visa Duration': return '📅';
@@ -35,7 +34,6 @@ const VisaDetails = () => {
     }
   };
 
-  // Key facts based on visa type (customize as needed)
   const getKeyFacts = () => {
     const facts = [];
     
@@ -62,22 +60,16 @@ const VisaDetails = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* ===== HERO SECTION - Increased height ===== */}
+      {/* ===== HERO SECTION ===== */}
       <section className="relative w-full h-[50vh] md:h-[55vh] lg:h-[60vh] overflow-hidden">
-        {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center"
-          style={{ 
-            backgroundImage: `url(${visaHeroImg})`,
-          }}
+          style={{ backgroundImage: `url(${visaHeroImg})` }}
         >
-          {/* Overlay - Indigo with gradient */}
           <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/20 via-indigo-500/40 to-indigo-400/30"></div>
         </div>
         
-        {/* Content - Moved down with padding-top */}
         <div className="relative h-full container mx-auto px-4 flex flex-col justify-center pt-16 md:pt-20">
-          {/* Breadcrumb - Moved down */}
           <div className="mb-6 md:mb-8">
             <Link 
               to="/visa" 
@@ -90,7 +82,6 @@ const VisaDetails = () => {
             </Link>
           </div>
           
-          {/* Title with Flag */}
           <div className="flex items-center gap-4">
             <div className="text-6xl md:text-7xl bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 shadow-xl">
               {visa.flag}
@@ -109,7 +100,6 @@ const VisaDetails = () => {
           </div>
         </div>
         
-        {/* Bottom Wave Effect (optional) */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto">
             <path fill="#f9fafb" fillOpacity="1" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
@@ -120,7 +110,7 @@ const VisaDetails = () => {
       {/* ===== MAIN CONTENT ===== */}
       <div className="container mx-auto px-4 py-12 -mt-20 relative z-10">
         
-        {/* ===== KEY FACTS SECTION - Like screenshot ===== */}
+        {/* ===== KEY FACTS SECTION ===== */}
         <div className="bg-white rounded-2xl shadow-xl p-8 mb-12 border border-indigo-100">
           <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
             <span className="w-1.5 h-8 bg-indigo-600 rounded-full mr-3"></span>
@@ -140,7 +130,6 @@ const VisaDetails = () => {
             ))}
           </div>
           
-          {/* Apply Now Button */}
           <div className="mt-8 text-center">
             <Link
               to={`/apply/${visa.id}`}
@@ -160,7 +149,7 @@ const VisaDetails = () => {
           {/* LEFT COLUMN - Main Content (2/3 width) */}
           <div className="lg:col-span-2 space-y-8">
             
-            {/* Introduction */}
+            {/* 1. Introduction */}
             <div className="bg-white rounded-2xl shadow-lg p-8 border border-indigo-100">
               <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
                 <span className="w-1.5 h-8 bg-indigo-600 rounded-full mr-3"></span>
@@ -179,38 +168,9 @@ const VisaDetails = () => {
               )}
             </div>
 
-            {/* Visa Process - Step by Step */}
+            {/* 2. Eligibility Section */}
             <div className="bg-white rounded-2xl shadow-lg p-8 border border-indigo-100">
               <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                <span className="w-1.5 h-8 bg-indigo-600 rounded-full mr-3"></span>
-                Visa Process:
-              </h2>
-              
-              <div className="space-y-6">
-                {visa.process?.map((step, index) => (
-                  <div key={index} className="relative">
-                    {/* Timeline line (except last) */}
-                    {index < visa.process.length - 1 && (
-                      <div className="absolute left-5 top-10 bottom-0 w-0.5 bg-indigo-200"></div>
-                    )}
-                    
-                    <div className="flex gap-4">
-                      <div className="flex-shrink-0 w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold z-10">
-                        {index + 1}
-                      </div>
-                      <div className="flex-1 pb-6">
-                        <p className="text-gray-800 font-medium">{step}</p>
-                        {/* You can add "What to Do" and "How We Help" sub-points if available in data */}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Eligibility Section */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 border border-indigo-100">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
                 <span className="w-1.5 h-8 bg-indigo-600 rounded-full mr-3"></span>
                 Eligibility
               </h2>
@@ -240,13 +200,112 @@ const VisaDetails = () => {
                 )}
               </div>
             </div>
+
+            {/* 3. Restrictions Section */}
+            <div className="bg-white rounded-2xl shadow-lg p-8 border border-red-100">
+              <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                <span className="w-1.5 h-8 bg-red-600 rounded-full mr-3"></span>
+                Restrictions
+              </h2>
+              
+              <div className="space-y-3">
+                <div className="flex items-start bg-red-50 p-3 rounded-lg">
+                  <span className="text-red-500 mr-3 text-lg">🚫</span>
+                  <p className="text-gray-700">You cannot enroll in any other course or change your current course</p>
+                </div>
+                <div className="flex items-start bg-red-50 p-3 rounded-lg">
+                  <span className="text-red-500 mr-3 text-lg">🚫</span>
+                  <p className="text-gray-700">You cannot attend a state-funded school</p>
+                </div>
+                <div className="flex items-start bg-red-50 p-3 rounded-lg">
+                  <span className="text-red-500 mr-3 text-lg">🚫</span>
+                  <p className="text-gray-700">You cannot engage in any form of work (paid/unpaid/internship)</p>
+                </div>
+                <div className="flex items-start bg-red-50 p-3 rounded-lg">
+                  <span className="text-red-500 mr-3 text-lg">🚫</span>
+                  <p className="text-gray-700">You cannot extend your visa beyond 11 months</p>
+                </div>
+                <div className="flex items-start bg-red-50 p-3 rounded-lg">
+                  <span className="text-red-500 mr-3 text-lg">🚫</span>
+                  <p className="text-gray-700">You cannot bring dependents with you</p>
+                </div>
+                <div className="flex items-start bg-red-50 p-3 rounded-lg">
+                  <span className="text-red-500 mr-3 text-lg">🚫</span>
+                  <p className="text-gray-700">You cannot apply for public funds or benefits</p>
+                </div>
+                <div className="flex items-start bg-red-50 p-3 rounded-lg">
+                  <span className="text-red-500 mr-3 text-lg">🚫</span>
+                  <p className="text-gray-700">You cannot work as an intern or volunteer</p>
+                </div>
+                <div className="flex items-start bg-red-50 p-3 rounded-lg">
+                  <span className="text-red-500 mr-3 text-lg">🚫</span>
+                  <p className="text-gray-700">You cannot switch to another visa category from within the UK</p>
+                </div>
+                <div className="flex items-start bg-red-50 p-3 rounded-lg">
+                  <span className="text-red-500 mr-3 text-lg">🚫</span>
+                  <p className="text-gray-700">You cannot access public healthcare (NHS) free of charge</p>
+                </div>
+              </div>
+            </div>
+
+            {/* 4. Subscribe Button - Now in Left Column */}
+            <div className="bg-white rounded-2xl shadow-lg p-8 border border-indigo-100">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">Subscribe to our newsletter</h3>
+                  <p className="text-gray-600">Get latest visa updates and news</p>
+                </div>
+                <div className="flex w-full md:w-auto">
+                  <input
+                    type="email"
+                    placeholder="Your email address"
+                    className="flex-1 md:w-64 px-4 py-3 border border-indigo-200 rounded-l-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  />
+                  <button className="px-6 py-3 bg-indigo-600 text-white rounded-r-xl hover:bg-indigo-700 transition-colors">
+                    Subscribe
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* RIGHT COLUMN - Sidebar (1/3 width) */}
-                    {/* RIGHT COLUMN - Sidebar (1/3 width) */}
           <div className="space-y-8">
             
-                        {/* More Visas Card */}
+            {/* 1. Visa Process - Replaces UK Visas at top */}
+            <div className="bg-white rounded-2xl shadow-lg p-6 border border-indigo-100">
+              <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                <span className="w-1 h-6 bg-indigo-600 rounded-full mr-3"></span>
+                Visa Process
+              </h3>
+              
+              <div className="space-y-4">
+                {visa.process?.map((step, index) => (
+                  <div key={index} className="flex items-start gap-3 p-3 bg-indigo-50 rounded-lg">
+                    <div className="flex-shrink-0 w-6 h-6 bg-indigo-600 text-white rounded-full flex items-center justify-center text-xs font-bold">
+                      {index + 1}
+                    </div>
+                    <p className="text-gray-700 text-sm">{step}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* 2. Need Help Button */}
+            <div className="bg-gradient-to-br from-indigo-600 to-indigo-800 rounded-2xl shadow-lg p-6 text-white">
+              <h3 className="text-xl font-bold mb-4">Need Help?</h3>
+              <p className="text-indigo-100 mb-4 text-sm">
+                Our visa experts are here to assist you with your application.
+              </p>
+              <Link
+                to="/contact"
+                className="block w-full bg-white text-indigo-700 text-center font-semibold py-3 rounded-xl hover:bg-indigo-50 transition-colors"
+              >
+                Contact Us
+              </Link>
+            </div>
+
+            {/* 3. UK Visas - Below Need Help */}
             <div className="bg-white rounded-2xl shadow-lg p-6 border border-indigo-100">
               <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
                 <span className="w-1 h-6 bg-indigo-600 rounded-full mr-3"></span>
@@ -273,87 +332,6 @@ const VisaDetails = () => {
                   <p className="font-medium text-indigo-800">🇬🇧 Tourism/Visitor Visa</p>
                 </Link>
               </div>
-            </div>
-
-            {/* Quick Contact Card */}
-            <div className="bg-gradient-to-br from-indigo-600 to-indigo-800 rounded-2xl shadow-lg p-6 text-white">
-              <h3 className="text-xl font-bold mb-4">Need Help?</h3>
-              <p className="text-indigo-100 mb-4 text-sm">
-                Our visa experts are here to assist you with your application.
-              </p>
-              <Link
-                to="/contact"
-                className="block w-full bg-white text-indigo-700 text-center font-semibold py-3 rounded-xl hover:bg-indigo-50 transition-colors"
-              >
-                Contact Us
-              </Link>
-            </div>
-
-            {/* Restrictions Card - YAHAN PASTE KARO */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 border border-indigo-100">
-              <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                <span className="w-1 h-6 bg-red-500 rounded-full mr-3"></span>
-                Restrictions
-              </h3>
-              
-              <div className="space-y-3">
-                <div className="flex items-start bg-red-50 p-3 rounded-lg">
-                  <span className="text-red-500 mr-3 text-lg">🚫</span>
-                  <p className="text-sm text-gray-700">Enroll in any other course or change your current course</p>
-                </div>
-                <div className="flex items-start bg-red-50 p-3 rounded-lg">
-                  <span className="text-red-500 mr-3 text-lg">🚫</span>
-                  <p className="text-sm text-gray-700">Attend a state-funded school</p>
-                </div>
-                <div className="flex items-start bg-red-50 p-3 rounded-lg">
-                  <span className="text-red-500 mr-3 text-lg">🚫</span>
-                  <p className="text-sm text-gray-700">Engage in any form of work (paid/unpaid/internship)</p>
-                </div>
-                <div className="flex items-start bg-red-50 p-3 rounded-lg">
-                  <span className="text-red-500 mr-3 text-lg">🚫</span>
-                  <p className="text-sm text-gray-700">Extend your visa beyond 11 months</p>
-                </div>
-                <div className="flex items-start bg-red-50 p-3 rounded-lg">
-                  <span className="text-red-500 mr-3 text-lg">🚫</span>
-                  <p className="text-sm text-gray-700">Bring dependents with you</p>
-                </div>
-                <div className="flex items-start bg-red-50 p-3 rounded-lg">
-                  <span className="text-red-500 mr-3 text-lg">🚫</span>
-                  <p className="text-sm text-gray-700">Apply for public funds or benefits</p>
-                </div>
-                <div className="flex items-start bg-red-50 p-3 rounded-lg">
-                  <span className="text-red-500 mr-3 text-lg">🚫</span>
-                  <p className="text-sm text-gray-700">Work as an intern or volunteer</p>
-                </div>
-                <div className="flex items-start bg-red-50 p-3 rounded-lg">
-                  <span className="text-red-500 mr-3 text-lg">🚫</span>
-                  <p className="text-sm text-gray-700">Switch to another visa category from within the UK</p>
-                </div>
-                <div className="flex items-start bg-red-50 p-3 rounded-lg">
-                  <span className="text-red-500 mr-3 text-lg">🚫</span>
-                  <p className="text-sm text-gray-700">Access public healthcare (NHS) free of charge</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Subscribe Section (from screenshot) */}
-        <div className="mt-12 bg-white rounded-2xl shadow-lg p-8 border border-indigo-100">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Subscribe to our newsletter</h3>
-              <p className="text-gray-600">Get latest visa updates and news</p>
-            </div>
-            <div className="flex w-full md:w-auto">
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="flex-1 md:w-64 px-4 py-3 border border-indigo-200 rounded-l-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              />
-              <button className="px-6 py-3 bg-indigo-600 text-white rounded-r-xl hover:bg-indigo-700 transition-colors">
-                Subscribe
-              </button>
             </div>
           </div>
         </div>

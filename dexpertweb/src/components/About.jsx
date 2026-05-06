@@ -1,4 +1,4 @@
-import aboutSmall from "../assets/about-img.png";
+import aboutSmall from "../assets/logo2.png";
 import aboutLarge from "../assets/about-img 2.png";
 import { useNavigate } from "react-router-dom";
 

@@ -35,11 +35,13 @@ import Home from "./pages/Home"
 import Visa from "./pages/Visa"
 import WebDevelopment from "./pages/WebDevelopment"
 import DigitalProducts from "./pages/DigitalProducts"
-import Blogs from "./pages/Blogs"
+import Blogs from "./pages/DBlogs"
 import Contact from "./pages/Contact"
 import VisaDetails from "./pages/VisaDetails"
 import ApplyVisa from "./pages/ApplyVisa"
 import ScrollToTop from "./components/ScrollToTop"; 
+import DBlogs from './pages/DBlogs';
+import GraphicDesignProducts from './pages/GraphicDesignProducts';
 
 function App() {
   return (
@@ -52,7 +54,8 @@ function App() {
         <Route path="/visa" element={<Visa />} />
         <Route path="/web-development" element={<WebDevelopment />} />
         <Route path="/digital-products" element={<DigitalProducts />} />
-        <Route path="/Blogs" element={<Blogs />} />
+        <Route path="/d-blogs" element={<DBlogs />} />
+        <Route path="/graphic-design" element={<GraphicDesignProducts />} />  
         <Route path="/Contact" element={<Contact />} />
         <Route path="/visa-details/:visaType" element={<VisaDetails />} />
         <Route path="/apply/:visaType" element={<ApplyVisa />} />
