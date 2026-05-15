@@ -1,7 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* Play Button Styling */
+
+/* =========================
+   GLOBAL BASE STYLES
+========================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
+  min-height: 100vh;
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* =========================
+   PLAY BUTTON (your site)
+========================= */
+
 .play-wrapper {
   position: relative;
   width: 90px;
@@ -55,6 +74,71 @@
     opacity: 0;
   }
 }
-html {
-  scroll-behavior: smooth;
+
+/* =========================
+   PORTFOLIO ANIMATIONS
+========================= */
+
+/* Float animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Gradient animation */
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 3s ease infinite;
+}
+
+/* Glow effect */
+.glow {
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+}
+
+.glow:hover {
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.6);
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #06b6d4, #8b5cf6);
 }

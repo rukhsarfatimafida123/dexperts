@@ -95,40 +95,46 @@ const DigitalProductspage = () => {
   };
 
   const teamMembers = [
-    {
-      name: "Rukhsar Fatima",
-      role: "Developer",
-      image: rukhWebp,
-      borderColor: "purple-400",
-      social: {
-        github: "#",
-        linkedin: "#",
-        twitter: "#"
-      }
-    },
-    {
-      name: "Muhammad Saim Fida",
-      role: "Consultant",
-      image: saimWebp,
-      borderColor: "cyan-400",
-      social: {
-        github: "#",
-        linkedin: "#",
-        twitter: "#"
-      }
-    },
-    {
-      name: "Ahmed Fida",
-      role: "Civil Engineer",
-      image: ahmedJpg,
-      borderColor: "pink-400",
-      social: {
-        github: "#",
-        linkedin: "#",
-        twitter: "#"
-      }
+  {
+    name: "Rukhsar Fatima",
+    role: "Developer",
+    image: rukhWebp,
+    borderColor: "purple-400",
+    portfolioLink: "/rukhsar-portfolio",
+
+    social: {
+      github: "#",
+      linkedin: "#",
+      twitter: "#"
     }
-  ];
+  },
+  {
+    name: "Muhammad Saim Fida",
+    role: "Consultant",
+    image: saimWebp,
+    borderColor: "cyan-400",
+    portfolioLink: "/",
+
+    social: {
+      github: "#",
+      linkedin: "#",
+      twitter: "#"
+    }
+  },
+  {
+    name: "Ahmed Fida",
+    role: "Civil Engineer",
+    image: ahmedJpg,
+    borderColor: "pink-400",
+    portfolioLink: "/",
+
+    social: {
+      github: "#",
+      linkedin: "#",
+      twitter: "#"
+    }
+  }
+];
 
   return (
     <div className="min-h-screen bg-white">
@@ -296,74 +302,86 @@ const DigitalProductspage = () => {
 
           {/* Team Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-            {teamMembers.map((member, index) => (
-              <div
-                key={index}
-                className="group relative"
-              >
-                {/* Card */}
-                <div className="relative bg-white/10 backdrop-blur-md rounded-3xl p-6 border border-white/20 shadow-2xl hover:bg-white/15 transition-all duration-500 hover:transform hover:-translate-y-2">
-                  
-                  {/* Card header with gradient border */}
-                  <div className="absolute -inset-0.5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur"></div>
-                  
-                  <div className="relative">
-                    {/* Image container */}
-                    <div className="relative mb-6">
-                      <div className={`w-32 h-32 mx-auto rounded-2xl overflow-hidden border-4 border-${member.borderColor} shadow-xl transform group-hover:scale-105 transition-transform duration-500`}>
-                        <img 
-                          src={member.image} 
-                          alt={member.name}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      
-                      {/* Decorative elements */}
-                      <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    </div>
+  {teamMembers.map((member, index) => (
+    <div
+      key={index}
+      onClick={() => navigate(member.portfolioLink)}
+      className="group relative cursor-pointer"
+    >
+      {/* Card */}
+      <div className="relative bg-white/10 backdrop-blur-md rounded-3xl p-6 border border-white/20 shadow-2xl hover:bg-white/15 transition-all duration-500 hover:transform hover:-translate-y-2">
+        
+        {/* Card header with gradient border */}
+        <div className="absolute -inset-0.5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur"></div>
+        
+        <div className="relative">
 
-                    {/* Member info */}
-                    <div className="text-center mb-4">
-                      <h3 className="text-xl font-bold text-white mb-1 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-100 group-hover:to-purple-200 group-hover:bg-clip-text transition-all duration-300">
-                        {member.name}
-                      </h3>
-                      <p className="text-white/70 text-sm font-medium">
-                        {member.role}
-                      </p>
-                    </div>
+          {/* Image container */}
+          <div className="relative mb-6">
+            <div className={`w-32 h-32 mx-auto rounded-2xl overflow-hidden border-4 border-${member.borderColor} shadow-xl transform group-hover:scale-105 transition-transform duration-500`}>
+              <img 
+                src={member.image} 
+                alt={member.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
 
-                    {/* Social links */}
-                    <div className="flex justify-center items-center gap-3 pt-4 border-t border-white/10">
-                      <a 
-                        href={member.social.github}
-                        className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 hover:text-white hover:scale-110 transition-all duration-300"
-                      >
-                        <Github size={18} />
-                      </a>
-                      <a 
-                        href={member.social.linkedin}
-                        className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 hover:text-white hover:scale-110 transition-all duration-300"
-                      >
-                        <Linkedin size={18} />
-                      </a>
-                      <a 
-                        href={member.social.twitter}
-                        className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 hover:text-white hover:scale-110 transition-all duration-300"
-                      >
-                        <Twitter size={18} />
-                      </a>
-                      <a 
-                        href="#"
-                        className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 hover:text-white hover:scale-110 transition-all duration-300"
-                      >
-                        <Mail size={18} />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+            {/* Decorative elements */}
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </div>
+
+          {/* Member info */}
+          <div className="text-center mb-4">
+            <h3 className="text-xl font-bold text-white mb-1 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-100 group-hover:to-purple-200 group-hover:bg-clip-text transition-all duration-300">
+              {member.name}
+            </h3>
+
+            <p className="text-white/70 text-sm font-medium">
+              {member.role}
+            </p>
+          </div>
+
+          {/* Social links */}
+          <div className="flex justify-center items-center gap-3 pt-4 border-t border-white/10">
+
+            <a 
+              href={member.social.github}
+              onClick={(e) => e.stopPropagation()}
+              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 hover:text-white hover:scale-110 transition-all duration-300"
+            >
+              <Github size={18} />
+            </a>
+
+            <a 
+              href={member.social.linkedin}
+              onClick={(e) => e.stopPropagation()}
+              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 hover:text-white hover:scale-110 transition-all duration-300"
+            >
+              <Linkedin size={18} />
+            </a>
+
+            <a 
+              href={member.social.twitter}
+              onClick={(e) => e.stopPropagation()}
+              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 hover:text-white hover:scale-110 transition-all duration-300"
+            >
+              <Twitter size={18} />
+            </a>
+
+            <a 
+              href="#"
+              onClick={(e) => e.stopPropagation()}
+              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 hover:text-white hover:scale-110 transition-all duration-300"
+            >
+              <Mail size={18} />
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
 
           {/* Bottom line with gradient */}
           <div className="w-32 h-1 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 mx-auto my-16 rounded-full"></div>

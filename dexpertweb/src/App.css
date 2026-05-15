@@ -1,44 +1,57 @@
+/* =========================
+   ROOT RESET (SAFE FOR ALL WEBSITE)
+========================= */
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-align: left;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* =========================
+   GLOBAL RESET
+========================= */
+
+body {
+  margin: 0;
+  padding: 0;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Smooth scrolling for whole website */
+html {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* =========================
+   BASIC UTILITIES (SAFE)
+========================= */
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
+/* Optional card utility (if used anywhere) */
 .card {
-  padding: 2em;
+  padding: 1.5rem;
+  border-radius: 12px;
 }
 
-.read-the-docs {
-  color: #888;
+/* =========================
+   REMOVE VITE DEFAULT STYLES
+   (intentionally cleaned)
+========================= */
+
+/* logo styles removed */
+/* animation demo removed */
+
+/* =========================
+   RESPONSIVE SAFETY
+========================= */
+
+img {
+  max-width: 100%;
+  height: auto;
 }
-
-

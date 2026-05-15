@@ -1,53 +1,34 @@
-// import Navbar from "./components/Navbar"
-// import Hero from "./components/Hero"
-// import About from "./components/About"
-// import Services from "./components/Services"
-// import Products from "./components/Products"
-// import WhyChooseUs from "./components/Whychooseus"
-// import Testimonials from "./components/Testimonials"
-// import Blogs from "./components/Blogs"
-// import Contact from "./components/Contact"
-// import Footer from "./components/Footer"
+import { Routes, Route, useLocation } from "react-router-dom";
 
-// function App() {
-//   return (
-//     <>
-//       <Navbar />
-//       <Hero />
-//       <About />
-//       <Services />
-//       <Products />
-//       <WhyChooseUs />
-//       <Testimonials />
-//       <Blogs />
-//       <Contact />
-//       <Footer />
-//     </>
-//   )
-// }
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
-// export default App
-import { Routes, Route } from "react-router-dom"
-import Navbar from "./components/Navbar"
-import Footer from "./components/Footer"
-
-import Home from "./pages/Home"
-import Visa from "./pages/Visa"
-import WebDevelopment from "./pages/WebDevelopment"
-import DigitalProducts from "./pages/DigitalProducts"
-import Blogs from "./pages/DBlogs"
-import Contact from "./pages/Contact"
-import VisaDetails from "./pages/VisaDetails"
-import ApplyVisa from "./pages/ApplyVisa"
-import ScrollToTop from "./components/ScrollToTop"; 
-import DBlogs from './pages/DBlogs';
-import GraphicDesignProducts from './pages/GraphicDesignProducts';
+// Pages
+import Home from "./pages/Home";
+import Visa from "./pages/Visa";
+import WebDevelopment from "./pages/WebDevelopment";
+import DigitalProducts from "./pages/DigitalProducts";
+import DBlogs from "./pages/DBlogs";
+import Contact from "./pages/Contact";
+import VisaDetails from "./pages/VisaDetails";
+import ApplyVisa from "./pages/ApplyVisa";
+import GraphicDesignProducts from "./pages/GraphicDesignProducts";
+import RukhsarPortfolio from "./pages/RukhsarPortfolio";
 
 function App() {
+  const location = useLocation();
+
+  // jis page par header/footer hide karna ho
+  const hideLayoutRoutes = ["/rukhsar-portfolio"];
+
+  const hideLayout = hideLayoutRoutes.includes(location.pathname);
+
   return (
     <>
-      <Navbar />
-      <ScrollToTop /> 
+      {!hideLayout && <Navbar />}
+
+      <ScrollToTop />
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -55,17 +36,19 @@ function App() {
         <Route path="/web-development" element={<WebDevelopment />} />
         <Route path="/digital-products" element={<DigitalProducts />} />
         <Route path="/d-blogs" element={<DBlogs />} />
-        <Route path="/graphic-design" element={<GraphicDesignProducts />} />  
-        <Route path="/Contact" element={<Contact />} />
+        <Route path="/graphic-design" element={<GraphicDesignProducts />} />
+        <Route path="/contact" element={<Contact />} />
+
         <Route path="/visa-details/:visaType" element={<VisaDetails />} />
         <Route path="/apply/:visaType" element={<ApplyVisa />} />
+
+        {/* Portfolio Route */}
+        <Route path="/rukhsar-portfolio" element={<RukhsarPortfolio />} />
       </Routes>
 
-      <Footer />
+      {!hideLayout && <Footer />}
     </>
-  )
+  );
 }
 
-export default App
-
-
+export default App;
