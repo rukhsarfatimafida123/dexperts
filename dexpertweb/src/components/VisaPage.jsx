@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { ChevronRight, Globe, Clock, CheckCircle, Shield, Briefcase, GraduationCap, Heart, Plane, Building, MapPin } from "lucide-react";
 
 import heroImg from "../assets/hero2.jpg";
 
@@ -20,64 +21,110 @@ import euImg from "../assets/eurostudy.png";
 
 import ContactSection from "../components/Contact";
 
-/* ================= CARD COMPONENT ================= */
+/* ================= PROFESSIONAL CARD COMPONENT ================= */
 const VisaCard = ({ title, desc, image, link }) => {
   const navigate = useNavigate();
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
 
-  const handleMouseMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
-    const y = ((e.clientY - rect.top) / rect.height - 0.5) * -20;
-    setTilt({ x, y });
+  // Get icon based on title
+  const getIcon = () => {
+    if (title.toLowerCase().includes("student")) return <GraduationCap size={20} />;
+    if (title.toLowerCase().includes("work") || title.toLowerCase().includes("skilled")) return <Briefcase size={20} />;
+    if (title.toLowerCase().includes("marriage") || title.toLowerCase().includes("partner")) return <Heart size={20} />;
+    if (title.toLowerCase().includes("tour") || title.toLowerCase().includes("visitor")) return <Plane size={20} />;
+    if (title.toLowerCase().includes("resident") || title.toLowerCase().includes("pr") || title.toLowerCase().includes("citizenship")) return <Shield size={20} />;
+    if (title.toLowerCase().includes("sponsorship")) return <Building size={20} />;
+    return <Globe size={20} />;
   };
 
-  const handleMouseLeave = () => setTilt({ x: 0, y: 0 });
+  // Get gradient based on title
+  const getGradient = () => {
+    if (title.toLowerCase().includes("student")) return "from-blue-500 to-cyan-500";
+    if (title.toLowerCase().includes("work") || title.toLowerCase().includes("skilled")) return "from-emerald-500 to-teal-500";
+    if (title.toLowerCase().includes("marriage") || title.toLowerCase().includes("partner")) return "from-rose-500 to-pink-500";
+    if (title.toLowerCase().includes("tour") || title.toLowerCase().includes("visitor")) return "from-amber-500 to-orange-500";
+    if (title.toLowerCase().includes("resident") || title.toLowerCase().includes("pr") || title.toLowerCase().includes("citizenship")) return "from-purple-500 to-indigo-500";
+    if (title.toLowerCase().includes("sponsorship")) return "from-indigo-500 to-blue-500";
+    return "from-indigo-500 to-purple-500";
+  };
 
   return (
     <motion.div
-      className="group relative rounded-2xl overflow-hidden p-[1px] bg-gradient-to-br from-indigo-800 via-indigo-900 to-indigo-950 h-full"
-      style={{ perspective: 1000 }}
+      className="group relative h-full"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Glow */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-700 blur-xl"></div>
-
-      <motion.div
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        style={{
-          transform: `rotateY(${tilt.x}deg) rotateX(${tilt.y}deg)`,
-        }}
-        className="relative bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl p-4 flex flex-col justify-between h-full cursor-pointer"
-      >
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-32 object-cover rounded-xl mb-3"
-        />
+      {/* Card with light blue background */}
+      <div className="relative bg-blue-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 h-full flex flex-col hover:-translate-y-2">
         
-        {/* Content with fixed height to maintain consistency */}
-        <div className="flex flex-col flex-1">
-          <h3 className="text-lg font-semibold mb-1 text-white tracking-wide min-h-[48px]">
-            {title}
-          </h3>
+        {/* Gradient top border */}
+        <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${getGradient()} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}></div>
+
+        {/* Image Section - Removed hover overlay */}
+        <div className="relative h-40 overflow-hidden">
+          <img 
+            src={image} 
+            alt={title}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
           
-          {/* Description with fixed height and scroll if needed */}
-          <div className="flex-1 mb-3">
-            <p className="text-xs text-indigo-200 leading-relaxed line-clamp-3">
-              {desc}
-            </p>
+          {/* Icon Badge */}
+          <div className={`absolute bottom-3 right-3 w-10 h-10 rounded-full bg-gradient-to-r ${getGradient()} flex items-center justify-center text-white shadow-lg transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500`}>
+            {getIcon()}
+          </div>
+        </div>
+
+        {/* Content Section */}
+        <div className="p-5 flex-1 flex flex-col">
+          {/* Title with icon */}
+          <div className="flex items-start gap-2 mb-3">
+            <div className={`w-8 h-8 rounded-lg bg-gradient-to-r ${getGradient()} flex items-center justify-center text-white flex-shrink-0 mt-0.5`}>
+              {getIcon()}
+            </div>
+            <h3 className="text-lg font-bold text-gray-800 leading-tight flex-1">
+              {title}
+            </h3>
           </div>
 
+          {/* Description - No extra background now */}
+          <p className="text-gray-700 text-sm leading-relaxed mb-4 line-clamp-4">
+            {desc}
+          </p>
+
+          {/* Key Features Pills */}
+          <div className="flex flex-wrap gap-2 mb-4">
+            <span className="text-xs px-2 py-1 bg-white/70 text-gray-600 rounded-full flex items-center gap-1">
+              <Clock size={12} />
+              Fast Processing
+            </span>
+            <span className="text-xs px-2 py-1 bg-white/70 text-gray-600 rounded-full flex items-center gap-1">
+              <CheckCircle size={12} />
+              98% Success
+            </span>
+          </div>
+
+          {/* Button */}
           <button
             onClick={() => navigate(link)}
-            className="mt-auto relative px-4 py-1.5 rounded-full bg-indigo-600 hover:bg-indigo-500 transition-all duration-300 text-white text-sm font-medium overflow-hidden w-full"
+            className="mt-auto relative px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-700 text-white text-sm font-medium overflow-hidden group/btn transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/25"
           >
-            <span className="relative z-10">Read More</span>
-            <span className="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-600 opacity-0 group-hover:opacity-100 transition"></span>
+            <span className="relative z-10 flex items-center justify-center gap-2">
+              Learn More
+              <ChevronRight size={16} className="transition-transform duration-300 group-hover/btn:translate-x-1" />
+            </span>
+            <span className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-600 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></span>
           </button>
         </div>
-      </motion.div>
+
+        {/* Decorative corner */}
+        <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <div className={`absolute top-0 right-0 w-8 h-8 bg-gradient-to-br ${getGradient()} transform rotate-45 translate-x-4 -translate-y-4`}></div>
+        </div>
+      </div>
     </motion.div>
   );
 };
@@ -87,15 +134,24 @@ const Section = ({ id, title, cards }) => {
   return (
     <section id={id} className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center text-indigo-900 mb-12">
-          {title}
-        </h2>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl font-bold text-gray-900 mb-3">
+            {title}
+          </h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full"></div>
+        </motion.div>
 
         {/* Cards centered in a grid */}
         <div className="flex justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl">
             {cards.map((card, idx) => (
-              <div key={idx} className="w-[300px] h-[400px]">
+              <div key={idx} className="w-[340px]">
                 <VisaCard {...card} />
               </div>
             ))}
@@ -283,7 +339,7 @@ const VisaPage = () => {
               href={`#${country.id}`}
               className="flex flex-col items-center group"
             >
-              <div className="relative w-24 h-24 rounded-full overflow-hidden shadow-xl  group-hover:scale-110 transition duration-500">
+              <div className="relative w-24 h-24 rounded-full overflow-hidden shadow-xl group-hover:scale-110 transition duration-500">
                 <img
                   src={country.flag}
                   alt={country.name}

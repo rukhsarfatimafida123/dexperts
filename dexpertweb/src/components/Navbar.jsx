@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 
 // Logos
 import logoWhite from "../assets/white logo.png";
-import logoDark from "../assets/flogo.jpeg";
+import logoDark from "../assets/White logo Checking.png";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -44,31 +44,31 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
 
-          {/* 🔥 LOGO (SMOOTH + FIXED) */}
-          <Link to="/" className="flex items-center">
-            <div className="relative h-16 md:h-20 w-[140px] md:w-[180px]">
+         {/* 🔥 LOGO (ULTRA SMOOTH + SAME POSITION) */}
+<Link to="/" className="flex items-center">
+  <div className="relative flex items-center justify-center h-16 md:h-20 w-[140px] md:w-[180px] overflow-hidden">
 
-              {/* White Logo */}
-              <img
-                src={logoWhite}
-                alt="Logo"
-                className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${
-                  scrolled ? "opacity-0" : "opacity-100"
-                }`}
-              />
+    {/* White Logo */}
+    <img
+      src={logoWhite}
+      alt="Logo White"
+      className={`absolute top-0 left-0 w-full h-full object-contain
+      transition-all duration-700 ease-in-out
+      ${scrolled ? "opacity-0 scale-95" : "opacity-100 scale-100"}`}
+    />
 
-              {/* Dark Logo */}
-              <img
-                src={logoDark}
-                alt="Logo"
-                className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${
-                  scrolled ? "opacity-100" : "opacity-0"
-                }`}
-              />
+    {/* Dark Logo */}
+    <img
+  src={logoDark}
+  alt="Logo Dark"
+  className={`absolute top-0 left-0
+  w-[110%] h-[110%] object-contain
+  transition-all duration-700 ease-in-out
+  ${scrolled ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
+/>
 
-            </div>
-          </Link>
-
+  </div>
+</Link>
           {/* Desktop Menu */}
           <ul
             className={`hidden md:flex items-center gap-6 lg:gap-8 text-[15px] font-medium transition-colors duration-500 ${

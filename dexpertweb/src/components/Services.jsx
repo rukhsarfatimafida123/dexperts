@@ -48,7 +48,7 @@ const Services = () => {
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
             SEE OUR <br /> WORK
           </h2>
-          <p className="mt-6 text-gray-200 text-base sm:text-lg max-w-xl mx-auto lg:mx-0">
+          <p className="mt-6 text-gray-200 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 text-justify">
             At Dexperts, our portfolio showcases our dedication to excellence
             across various services. We have successfully guided clients
             through complex visa immigration processes, created stunning web

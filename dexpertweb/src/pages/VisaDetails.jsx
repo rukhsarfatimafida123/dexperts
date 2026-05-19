@@ -1,9 +1,11 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getVisaById } from '../data/visaData';
+import { Calendar, Clock, Languages, GraduationCap, BarChart3, Hourglass, DollarSign, FileText, Users, Briefcase, Shield } from 'lucide-react';
 
 // Import hero image
 import visaHeroImg from '../assets/hero2.jpg';
+
 
 const VisaDetails = () => {
   const { visaType } = useParams();
@@ -24,13 +26,22 @@ const VisaDetails = () => {
 
   const getKeyIcon = (key) => {
     switch(key) {
-      case 'Visa Duration': return '📅';
-      case 'Processing Time': return '⏱️';
-      case 'English Requirement': return '🔤';
-      case 'Eligibility': return '🎓';
-      case 'Marks': return '📊';
-      case 'Study Gap': return '⏳';
-      default: return '•';
+      case 'Visa Duration': 
+        return <Calendar size={20} className="text-indigo-600" />;
+      case 'Processing Time': 
+        return <Clock size={20} className="text-indigo-600" />;
+      case 'English Requirement': 
+        return <Languages size={20} className="text-indigo-600" />;
+      case 'Eligibility': 
+        return <GraduationCap size={20} className="text-indigo-600" />;
+      case 'Marks': 
+        return <BarChart3 size={20} className="text-indigo-600" />;
+      case 'Study Gap': 
+        return <Hourglass size={20} className="text-indigo-600" />;
+      case 'Visa Fee':
+        return <DollarSign size={20} className="text-indigo-600" />;
+      default: 
+        return <FileText size={20} className="text-indigo-600" />;
     }
   };
 
@@ -41,7 +52,7 @@ const VisaDetails = () => {
       facts.push(
         { key: 'Visa Duration', value: visa.id.includes('short-term') ? '6 - 11 Months' : 'Full Course Duration' },
         { key: 'Processing Time', value: visa.processingTime || '3-4 Weeks' },
-        { key: 'English Requirement', value: visa.id.includes('short-term') ? 'No' : 'IELTS/TOEFL' },
+        { key: 'English Requirement', value: visa.id.includes('short-term') ? 'Not Required' : 'IELTS/TOEFL Required' },
         { key: 'Eligibility', value: 'Matric or Above' },
         { key: 'Marks', value: '60% or Above' },
         { key: 'Study Gap', value: '2 Years or Less' }
@@ -110,38 +121,44 @@ const VisaDetails = () => {
       {/* ===== MAIN CONTENT ===== */}
       <div className="container mx-auto px-4 py-12 -mt-20 relative z-10">
         
-        {/* ===== KEY FACTS SECTION ===== */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 mb-12 border border-indigo-100">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-            <span className="w-1.5 h-8 bg-indigo-600 rounded-full mr-3"></span>
-            Key Facts:
-          </h2>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {keyFacts.map((fact, index) => (
-              <div 
-                key={index} 
-                className="bg-gradient-to-br from-indigo-50 to-indigo-100/50 rounded-xl p-4 text-center border border-indigo-200 hover:shadow-md transition-shadow"
-              >
-                <div className="text-2xl mb-2">{getKeyIcon(fact.key)}</div>
-                <p className="text-xs text-indigo-600 font-medium uppercase tracking-wider mb-1">{fact.key}</p>
-                <p className="text-sm md:text-base font-bold text-gray-800">{fact.value}</p>
-              </div>
-            ))}
+       {/* ===== KEY FACTS SECTION - UPDATED ===== */}
+<div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl shadow-xl p-8 mb-12 border border-indigo-100">
+  <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+    <span className="w-1.5 h-8 bg-indigo-600 rounded-full mr-3"></span>
+    Key Facts:
+  </h2>
+  
+  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+    {keyFacts.map((fact, index) => (
+      <div 
+        key={index} 
+        className="bg-white rounded-xl p-3 border border-indigo-200 hover:shadow-md transition-shadow"
+      >
+        <div className="flex items-center gap-2">
+          <div className="flex-shrink-0 w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center">
+            {getKeyIcon(fact.key)}
           </div>
-          
-          <div className="mt-8 text-center">
-            <Link
-              to={`/apply/${visa.id}`}
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-red-600 to-indigo-600 text-white text-lg font-semibold rounded-xl hover:from-indigo-700 hover:to-indigo-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-            >
-              Apply Now
-              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-              </svg>
-            </Link>
+          <div className="flex-1 min-w-0">
+            <p className="text-[10px] text-indigo-600 font-semibold uppercase tracking-wider mb-0.5 truncate">{fact.key}</p>
+            <p className="text-xs font-bold text-gray-800 truncate">{fact.value}</p>
           </div>
         </div>
+      </div>
+    ))}
+  </div>
+  
+  <div className="mt-8 text-center">
+    <Link
+      to={`/apply/${visa.id}`}
+      className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-red-500 to-red-600 text-white text-lg font-semibold rounded-xl hover:from-red-600 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+    >
+      Apply Now
+      <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+      </svg>
+    </Link>
+  </div>
+</div>
 
         {/* ===== TWO COLUMN LAYOUT ===== */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

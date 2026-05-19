@@ -48,7 +48,7 @@ const About = () => {
             About Us
           </h2>
 
-          <p className="text-gray-700 leading-relaxed text-base md:text-lg">
+          <p className="text-gray-700 leading-relaxed text-base md:text-lg text-justify">
             At Experts, we specialize in delivering a wide range of digital
             solutions tailored to meet your needs. We assist with visa
             immigration processes, ensuring a smooth and hassle-free
