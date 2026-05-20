@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 
-import ambitious from "../assets/customer-img3.png";
+import ambitious from "../assets/Ab Logo.png";
 import purity from "../assets/PBR-logo.jpg";
 import security from "../assets/customer-img.png";
 import muzna from "../assets/mr-logo.jpg";

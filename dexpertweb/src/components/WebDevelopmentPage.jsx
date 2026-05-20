@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import webDevBg from "../assets/banner-bg.png";
+import { FiMonitor, FiShoppingCart, FiUser, FiLayout, FiPenTool, FiRefreshCw } from "react-icons/fi";
+import { MdOutlineDevices, MdSpeed, MdDesignServices, MdCode } from "react-icons/md";
 
 const projects = [
   {
@@ -46,17 +48,24 @@ const projects = [
 ];
 
 const services = [
-  "Responsive Websites",
-  "E-Commerce Stores",
-  "Portfolio Websites",
-  "Landing Pages",
-  "Modern UI/UX",
-  "Website Redesign",
+  { name: "Responsive Websites", icon: FiMonitor },
+  { name: "E-Commerce Stores", icon: FiShoppingCart },
+  { name: "Portfolio Websites", icon: FiUser },
+  { name: "Landing Pages", icon: FiLayout },
+  { name: "Modern UI/UX", icon: FiPenTool },
+  { name: "Website Redesign", icon: FiRefreshCw },
+];
+
+const whyChooseMe = [
+  { title: "Responsive Design", icon: MdOutlineDevices },
+  { title: "Fast Performance", icon: MdSpeed },
+  { title: "Modern UI/UX", icon: MdDesignServices },
+  { title: "Clean Code", icon: MdCode },
 ];
 
 const WebDevelopmentPage = () => {
   return (
-    <div className="w-full text-white">
+    <div className="w-full bg-white">
 
       {/* HERO SECTION */}
       <section
@@ -64,7 +73,7 @@ const WebDevelopmentPage = () => {
         style={{ backgroundImage: `url(${webDevBg})` }}
       >
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-indigo-900/10"></div>
 
         {/* Content */}
         <div className="relative z-10 text-center px-6">
@@ -72,7 +81,7 @@ const WebDevelopmentPage = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="text-4xl md:text-6xl font-bold"
+            className="text-4xl md:text-6xl font-bold text-white"
           >
             Web Development
           </motion.h1>
@@ -92,7 +101,7 @@ const WebDevelopmentPage = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="inline-block mt-10 px-8 py-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-indigo-500 font-semibold hover:scale-105 transition-all duration-300 glow"
+            className="inline-block mt-10 px-8 py-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-indigo-500 text-white font-semibold hover:scale-105 transition-all duration-300 glow"
           >
             View Projects
           </motion.a>
@@ -105,36 +114,39 @@ const WebDevelopmentPage = () => {
 
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold mb-6">
-              My
-              <span className="text-cyan-400"> Services</span>
+              <span className="text-indigo-950">My</span>
+              <span className="text-cyan-500"> Services</span>
             </h2>
 
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <p className="text-gray-600 max-w-2xl mx-auto">
               Professional web development services with clean UI,
               responsive design and modern user experience.
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ y: -10 }}
-                className="glass rounded-3xl p-8 group"
-              >
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-cyan-500 to-indigo-500 flex items-center justify-center text-3xl mb-6 group-hover:rotate-6 transition-transform">
-                  💻
-                </div>
+            {services.map((service, index) => {
+              const IconComponent = service.icon;
+              return (
+                <motion.div
+                  key={index}
+                  whileHover={{ y: -10 }}
+                  className="bg-indigo-950 rounded-3xl p-8 group border border-indigo-800/30"
+                >
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-cyan-500 to-indigo-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <IconComponent className="text-white text-2xl" />
+                  </div>
 
-                <h3 className="text-2xl font-semibold mb-4">
-                  {service}
-                </h3>
+                  <h3 className="text-2xl font-semibold mb-4 text-white">
+                    {service.name}
+                  </h3>
 
-                <p className="text-gray-400 leading-relaxed">
-                  High-quality modern websites optimized for all devices.
-                </p>
-              </motion.div>
-            ))}
+                  <p className="text-gray-400 leading-relaxed">
+                    High-quality modern websites optimized for all devices.
+                  </p>
+                </motion.div>
+              );
+            })}
           </div>
 
         </div>
@@ -149,11 +161,11 @@ const WebDevelopmentPage = () => {
 
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold mb-6">
-              Featured
-              <span className="text-cyan-400"> Projects</span>
+              <span className="text-indigo-950">Featured</span>
+              <span className="text-cyan-500"> Projects</span>
             </h2>
 
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <p className="text-gray-600 max-w-2xl mx-auto">
               Some modern websites and applications I have designed and developed.
             </p>
           </div>
@@ -164,7 +176,7 @@ const WebDevelopmentPage = () => {
               <motion.div
                 key={index}
                 whileHover={{ y: -10 }}
-                className="glass rounded-3xl overflow-hidden group"
+                className="bg-indigo-950 rounded-3xl overflow-hidden group border border-indigo-800/30"
               >
 
                 {/* Image */}
@@ -191,7 +203,7 @@ const WebDevelopmentPage = () => {
                     ))}
                   </div>
 
-                  <h3 className="text-3xl font-bold mb-4 group-hover:text-cyan-400 transition-colors">
+                  <h3 className="text-3xl font-bold mb-4 text-white group-hover:text-cyan-400 transition-colors">
                     {project.title}
                   </h3>
 
@@ -206,7 +218,7 @@ const WebDevelopmentPage = () => {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-500 hover:scale-105 transition-all duration-300 font-semibold"
+                      className="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-500 text-white hover:scale-105 transition-all duration-300 font-semibold"
                     >
                       Live Demo
                     </a>
@@ -234,11 +246,11 @@ const WebDevelopmentPage = () => {
       <section className="py-24 px-6 md:px-12 lg:px-20">
         <div className="max-w-7xl mx-auto">
 
-          <div className="glass rounded-[40px] p-10 md:p-16">
+          <div className="bg-indigo-950 rounded-[40px] p-10 md:p-16 border border-indigo-800/30">
 
             <div className="text-center mb-16">
               <h2 className="text-5xl font-bold mb-6">
-                Why Choose
+                <span className="text-white">Why Choose</span>
                 <span className="text-cyan-400"> Me</span>
               </h2>
 
@@ -250,29 +262,27 @@ const WebDevelopmentPage = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-              {[
-                "Responsive Design",
-                "Fast Performance",
-                "Modern UI/UX",
-                "Clean Code",
-              ].map((item, index) => (
-                <div
-                  key={index}
-                  className="text-center"
-                >
-                  <div className="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-r from-cyan-500 to-indigo-500 flex items-center justify-center text-3xl mb-6">
-                    ✨
+              {whyChooseMe.map((item, index) => {
+                const IconComponent = item.icon;
+                return (
+                  <div
+                    key={index}
+                    className="text-center"
+                  >
+                    <div className="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-r from-cyan-500 to-indigo-500 flex items-center justify-center mb-6">
+                      <IconComponent className="text-white text-3xl" />
+                    </div>
+
+                    <h3 className="text-xl font-semibold mb-3 text-white">
+                      {item.title}
+                    </h3>
+
+                    <p className="text-gray-400">
+                      Professional web solutions optimized for all devices.
+                    </p>
                   </div>
-
-                  <h3 className="text-xl font-semibold mb-3">
-                    {item}
-                  </h3>
-
-                  <p className="text-gray-400">
-                    Professional web solutions optimized for all devices.
-                  </p>
-                </div>
-              ))}
+                );
+              })}
 
             </div>
 
@@ -285,20 +295,20 @@ const WebDevelopmentPage = () => {
       <section className="pb-24 px-6 md:px-12 lg:px-20">
         <div className="max-w-5xl mx-auto">
 
-          <div className="glass rounded-[40px] px-8 py-20 text-center">
+          <div className="bg-indigo-950 rounded-[40px] px-8 py-20 text-center border border-indigo-800/30">
 
-            <h2 className="text-5xl font-bold mb-8">
-              Let’s Build Something Amazing
+            <h2 className="text-5xl font-bold mb-8 text-white">
+              Let's Build Something Amazing
             </h2>
 
             <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-10">
               Looking for a modern and responsive website for your
-              business or personal brand? Let’s work together.
+              business or personal brand? Let's work together.
             </p>
 
             <a
               href="/contact"
-              className="inline-block px-10 py-5 rounded-2xl bg-gradient-to-r from-cyan-500 to-indigo-500 font-semibold hover:scale-105 transition-all duration-300 glow"
+              className="inline-block px-10 py-5 rounded-2xl bg-gradient-to-r from-cyan-500 to-indigo-500 text-white font-semibold hover:scale-105 transition-all duration-300 glow"
             >
               Start Your Project
             </a>
