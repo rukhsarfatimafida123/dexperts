@@ -16,6 +16,7 @@ import ApplyVisa from "./pages/ApplyVisa";
 import GraphicDesignProducts from "./pages/GraphicDesignProducts";
 import RukhsarPortfolio from "./pages/RukhsarPortfolio";
 import DemoPage from "./components/DemoPage";
+import AhmedPortfolio from "./pages/AhmedPortfolio";
 
 function App() {
   const location = useLocation();
@@ -47,6 +48,7 @@ function App() {
         {/* Portfolio Route */}
         <Route path="/rukhsar-portfolio" element={<RukhsarPortfolio />} />
         <Route path="/demo/:projectId" element={<DemoPage />} />
+        <Route path="/ahmed-portfolio" element={<AhmedPortfolio />} />
       </Routes>
 
       {!hideLayout && <Footer />}

@@ -30,7 +30,7 @@ const TeamSection = () => {
       role: "Consultant",
       image: saimWebp,
       borderColor: "cyan-400",
-      portfolioLink: "/",
+      portfolioLink: "/ahmed-portfolio",
       social: {
         github: "#",
         linkedin: "#",

@@ -6,43 +6,50 @@ import { MdOutlineDevices, MdSpeed, MdDesignServices, MdCode } from "react-icons
 
 const projects = [
   {
+    id: "wedding-dress-store",
     title: "Wedding Dress Store",
     description:
       "Modern e-commerce website with elegant UI and responsive shopping experience.",
     image:
       "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
     tech: ["React", "Tailwind", "Responsive"],
-    live: "#",
+    live: "/demo/wedding-dress-store",
     github: "https://github.com/rukhsarfatimafida123/wed-dress-store",
   },
+
   {
+    id: "portfolio-website",
     title: "Portfolio Website",
     description:
       "Creative portfolio website with smooth animations and modern UI design.",
     image:
       "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop",
     tech: ["React", "UI/UX", "Animations"],
-    live: "#",
+    live: "/demo/portfolio-website",
     github: "#",
   },
+
   {
+    id: "business-landing",
     title: "Business Landing Page",
     description:
       "Professional landing page built for branding and client conversions.",
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
     tech: ["HTML", "CSS", "JavaScript"],
-    live: "#",
+    live: "/demo/business-landing",
     github: "#",
   },
+
   {
+    id: "task-manager",
     title: "Task Manager App",
     description:
       "Responsive task manager application with modern dashboard interface.",
     image:
       "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=1200&auto=format&fit=crop",
     tech: ["React", "Local Storage", "Tailwind"],
-    live: "#",
+    live: "/demo/task-manager",
     github: "#",
   },
 ];

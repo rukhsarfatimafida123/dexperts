@@ -27,21 +27,21 @@ const VisaDetails = () => {
   const getKeyIcon = (key) => {
     switch(key) {
       case 'Visa Duration': 
-        return <Calendar size={20} className="text-indigo-600" />;
+        return <Calendar size={20} className="text-red-700" />;
       case 'Processing Time': 
-        return <Clock size={20} className="text-indigo-600" />;
+        return <Clock size={20} className="text-red-700" />;
       case 'English Requirement': 
-        return <Languages size={20} className="text-indigo-600" />;
+        return <Languages size={20} className="text-red-700" />;
       case 'Eligibility': 
-        return <GraduationCap size={20} className="text-indigo-600" />;
+        return <GraduationCap size={20} className="text-red-700" />;
       case 'Marks': 
-        return <BarChart3 size={20} className="text-indigo-600" />;
+        return <BarChart3 size={20} className="text-red-700" />;
       case 'Study Gap': 
-        return <Hourglass size={20} className="text-indigo-600" />;
+        return <Hourglass size={20} className="text-red-700" />;
       case 'Visa Fee':
-        return <DollarSign size={20} className="text-indigo-600" />;
+        return <DollarSign size={20} className="text-red-700" />;
       default: 
-        return <FileText size={20} className="text-indigo-600" />;
+        return <FileText size={20} className="text-red-700" />;
     }
   };
 
