@@ -42,13 +42,13 @@ const LatestNews = () => {
       {/* Background Decorative Elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-200 to-indigo-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-indigo-300 to-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
+
           {/* FIRST CARD - Latest News with Background Image */}
           <div className="group relative">
-            <div 
+            <div
               className="bg-cover bg-center rounded-2xl shadow-lg overflow-hidden h-full hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
               style={{ backgroundImage: `url(${newsBg})` }}
             >
@@ -60,9 +60,11 @@ const LatestNews = () => {
                     News
                   </span>
                 </h2>
-                <p className="text-black text-lg leading-relaxed">
-                  Stay updated with the latest news and insights from Dexperts
-                </p>
+                <div className="mt-6 bg-white/40 backdrop-blur-lg rounded-2xl px-6 py-5 shadow-md border border-white/30">
+                  <p className="text-indigo-700 text-lg leading-relaxed font-medium">
+                    Stay updated with the latest news and insights from Dexperts
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -72,10 +74,10 @@ const LatestNews = () => {
             <div key={item.id} className="group relative">
               {/* Card */}
               <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-indigo-100 hover:shadow-2xl transition-all duration-500 h-full flex flex-col hover:-translate-y-2">
-                
+
                 {/* Color Bar at Top */}
                 <div className="h-2 bg-gradient-to-r from-indigo-500 via-indigo-600 to-indigo-700"></div>
-                
+
                 {/* Category Badge */}
                 <div className="px-6 pt-6">
                   <span className="inline-block bg-indigo-100 text-indigo-700 text-xs font-semibold px-3 py-1 rounded-full">
@@ -107,12 +109,12 @@ const LatestNews = () => {
                 <div className="px-6 mt-4 pt-4 border-t border-gray-100">
                   <div className="flex items-center gap-6">
                     {/* Like Button */}
-                    <button 
+                    <button
                       onClick={() => handleLike(item.id)}
                       className="flex items-center gap-2 text-gray-400 hover:text-red-500 transition-colors"
                     >
-                      <Heart 
-                        size={18} 
+                      <Heart
+                        size={18}
                         className={liked[item.id] ? 'fill-red-500 text-red-500' : ''}
                       />
                       <span className="text-xs">{liked[item.id] ? item.likes + 1 : item.likes}</span>

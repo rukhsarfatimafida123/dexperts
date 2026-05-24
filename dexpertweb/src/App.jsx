@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -19,16 +19,9 @@ import DemoPage from "./components/DemoPage";
 import AhmedPortfolio from "./pages/AhmedPortfolio";
 
 function App() {
-  const location = useLocation();
-
-  // jis page par header/footer hide karna ho
-  const hideLayoutRoutes = ["/rukhsar-portfolio"];
-
-  const hideLayout = hideLayoutRoutes.includes(location.pathname);
-
   return (
     <>
-      {!hideLayout && <Navbar />}
+      <Navbar />
 
       <ScrollToTop />
 
@@ -44,14 +37,13 @@ function App() {
         <Route path="/visa-details/:visaType" element={<VisaDetails />} />
         <Route path="/apply/:visaType" element={<ApplyVisa />} />
 
-
-        {/* Portfolio Route */}
+        {/* Portfolio Routes */}
         <Route path="/rukhsar-portfolio" element={<RukhsarPortfolio />} />
         <Route path="/demo/:projectId" element={<DemoPage />} />
         <Route path="/ahmed-portfolio" element={<AhmedPortfolio />} />
       </Routes>
 
-      {!hideLayout && <Footer />}
+      <Footer />
     </>
   );
 }

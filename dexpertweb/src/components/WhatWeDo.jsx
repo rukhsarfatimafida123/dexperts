@@ -40,7 +40,7 @@ const WhatWeDo = () => {
           <span className="text-indigo-600 font-semibold text-sm uppercase tracking-wider">
             Our Services
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-red-500 mt-2 mb-4">
             What We Do
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-indigo-400 mx-auto rounded-full"></div>
