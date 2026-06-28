@@ -44,7 +44,7 @@ const Services = () => {
       <div className="relative max-w-7xl mx-auto px-8 lg:px-16 py-20 lg:py-32 grid lg:grid-cols-2 gap-12 items-center">
 
         {/* LEFT CONTENT */}
-        <div className="text-indigo-800 text-center lg:text-left">
+        <div className="text-white text-center lg:text-left">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
             SEE OUR <br /> WORK
           </h2>
