@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import webDevBg from "../assets/banner-bg.png";
+import webDevBg from "../assets/webdevhero.png";
+import { ArrowRight } from "lucide-react";
 import { 
   FiGlobe, 
   FiLayers, 
@@ -12,6 +13,14 @@ import {
   FiExternalLink,
   FiGithub
 } from "react-icons/fi";
+import {
+  Code2,
+  ShoppingCart,
+  MonitorSmartphone,
+  LayoutTemplate,
+  Settings2,
+  Gauge,
+} from "lucide-react";
 
 const projects = [
   {
@@ -71,35 +80,35 @@ const projects = [
 ];
 
 const services = [
-  { 
-    name: "Enterprise Architecture", 
-    icon: FiTerminal, 
-    desc: "Engineered scalable web systems tailored to maximize performance and conversion rates." 
+  {
+    name: "Custom Website Development",
+    icon: Code2,
+    desc: "Tailor-made websites built with modern technologies, ensuring high performance, security, and scalability.",
   },
-  { 
-    name: "E-Commerce Ecosystems", 
-    icon: FiLayers, 
-    desc: "Seamless virtual storefronts boasting rich checkout structures and refined asset flows." 
+  {
+    name: "E-Commerce Development",
+    icon: ShoppingCart,
+    desc: "Professional online stores with secure payments, product management, order tracking, and seamless shopping experiences.",
   },
-  { 
-    name: "Bespoke Digital Portfolios", 
-    icon: FiBriefcase, 
-    desc: "Polished personal web profiles that frame your corporate value with luxury aesthetics." 
+  {
+    name: "Responsive Web Design",
+    icon: MonitorSmartphone,
+    desc: "Mobile-first websites optimized to deliver a flawless experience across desktops, tablets, and smartphones.",
   },
-  { 
-    name: "High-Converting Landers", 
-    icon: FiGlobe, 
-    desc: "Laser-focused layouts architected to capture data and dramatically elevate conversion metrics." 
+  {
+    name: "Landing Page Development",
+    icon: LayoutTemplate,
+    desc: "High-converting landing pages designed to maximize leads, improve engagement, and boost business growth.",
   },
-  { 
-    name: "System Refinement & Scale", 
-    icon: FiSliders, 
-    desc: "Replacing dated legacy scripts with clean modern React structures ready for fast deployments." 
+  {
+    name: "Website Maintenance & Support",
+    icon: Settings2,
+    desc: "Regular updates, security monitoring, bug fixes, backups, and performance optimization to keep your website running smoothly.",
   },
-  { 
-    name: "Conversion Optimization", 
-    icon: FiTrendingUp, 
-    desc: "Strategic audits to dramatically decrease load times and improve user-retention rates." 
+  {
+    name: "Website Speed Optimization",
+    icon: Gauge,
+    desc: "Improve loading speed, Core Web Vitals, and SEO performance for a faster and better user experience.",
   },
 ];
 
@@ -146,7 +155,7 @@ const WebDevelopmentPage = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="inline-block mt-10 px-8 py-4 rounded-2xl bg-gradient-to-r from-red-600 to-indigo-950 text-white font-semibold hover:scale-105 transition-all duration-300 shadow-lg shadow-red-600/20"
+            className=" inline-block mt-10 px-8 py-4 rounded-2xl sm:px-8 sm:py-3 text-white bg-indigo-700 hover:bg-indigo-800 shadow-lg hover:shadow-indigo-700/40 transition duration-300"
           >
             View Projects
           </motion.a>
@@ -154,50 +163,99 @@ const WebDevelopmentPage = () => {
       </section>
 
       {/* SERVICES SECTION */}
-      <section className="py-24 px-6 md:px-12 lg:px-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto">
+     {/* SERVICES SECTION */}
+<section className="relative py-24 px-6 md:px-12 lg:px-20 bg-gradient-to-b from-white via-slate-50 to-white overflow-hidden">
 
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
-              <span className="text-indigo-950">Professional</span>
-              <span className="text-red-600"> Capabilities</span>
-            </h2>
+  <div className="absolute top-0 left-0 w-80 h-80 bg-indigo-200/20 blur-3xl rounded-full"></div>
+  <div className="absolute bottom-0 right-0 w-80 h-80 bg-red-200/20 blur-3xl rounded-full"></div>
 
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg font-light">
-              High-tier web architecture crafted around pixel-perfect layouts, immaculate system scaling, and premium aesthetic values.
-            </p>
-          </div>
+  <div className="relative max-w-7xl mx-auto">
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => {
-              const IconComponent = service.icon;
-              return (
-                <motion.div
-                  key={index}
-                  whileHover={{ y: -8 }}
-                  className="bg-indigo-950 rounded-2xl p-8 group border border-indigo-900/30 shadow-xl flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-red-600 to-rose-600 flex items-center justify-center mb-8 shadow-md shadow-red-600/10">
-                      <IconComponent className="text-white text-xl" />
-                    </div>
+    <div className="text-center mb-20">
 
-                    <h3 className="text-2xl font-bold mb-4 text-white tracking-tight">
-                      {service.name}
-                    </h3>
+      <span className="inline-flex items-center rounded-full bg-indigo-100 text-indigo-700 px-4 py-2 text-sm font-semibold mb-5">
+        OUR SERVICES
+      </span>
 
-                    <p className="text-gray-400 leading-relaxed text-sm font-light">
-                      {service.desc}
-                    </p>
-                  </div>
-                  <div className="mt-6 w-full h-[1px] bg-indigo-900/50 group-hover:bg-red-500/30 transition-colors"></div>
-                </motion.div>
-              );
-            })}
-          </div>
+      <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+        Professional
+        <span className="text-indigo-700"> Web </span>
+        Solutions
+      </h2>
 
-        </div>
-      </section>
+      <p className="max-w-3xl mx-auto text-lg text-slate-600 leading-8">
+        We build fast, scalable and visually stunning websites that help
+        businesses establish a powerful online presence.
+      </p>
+
+    </div>
+
+    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+
+      {services.map((service, index) => {
+
+        const Icon = service.icon;
+
+        return (
+
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: .5, delay: index * .1 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -10 }}
+            className="group relative overflow-hidden rounded-3xl bg-white border border-slate-200 p-8 shadow-lg hover:shadow-2xl transition-all duration-500"
+          >
+
+            <div className="absolute -top-16 -right-16 w-44 h-44 rounded-full bg-gradient-to-br from-indigo-600/10 to-red-500/10 blur-3xl group-hover:scale-150 transition duration-700"></div>
+
+            <div className="relative">
+
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-700 to-red-500 flex items-center justify-center shadow-lg mb-8 group-hover:rotate-6 group-hover:scale-110 transition duration-500">
+
+                <Icon size={30} className="text-white" />
+
+              </div>
+
+              <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-indigo-700 transition">
+
+                {service.name}
+
+              </h3>
+
+              <p className="text-slate-600 leading-8 text-[15px]">
+
+                {service.desc}
+
+              </p>
+
+              <div className="mt-8 flex items-center text-indigo-700 font-semibold group-hover:text-red-600 transition">
+
+                Learn More
+
+                <ArrowRight
+                  size={18}
+                  className="ml-2 group-hover:translate-x-2 transition duration-300"
+                />
+
+              </div>
+
+            </div>
+
+            <div className="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-indigo-700 to-red-500 group-hover:w-full transition-all duration-500"></div>
+
+          </motion.div>
+
+        );
+
+      })}
+
+    </div>
+
+  </div>
+
+</section>
 
       {/* PROJECTS SECTION */}
       <section
@@ -208,7 +266,7 @@ const WebDevelopmentPage = () => {
 
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
-              <span className="text-indigo-950">Featured</span>
+              <span className="text-indigo-700">Featured</span>
               <span className="text-red-600"> Projects</span>
             </h2>
 
@@ -222,7 +280,7 @@ const WebDevelopmentPage = () => {
               <motion.div
                 key={index}
                 whileHover={{ y: -10 }}
-                className="bg-indigo-950 rounded-3xl overflow-hidden group border border-indigo-900/50 shadow-xl"
+                className="bg-indigo-800 rounded-3xl overflow-hidden group border border-indigo-900/50 shadow-xl"
               >
                 {/* Image */}
                 <div className="overflow-hidden relative h-72">
@@ -287,7 +345,7 @@ const WebDevelopmentPage = () => {
       {/* WHY CHOOSE ME */}
       <section className="py-24 px-6 md:px-12 lg:px-20 bg-slate-50">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-indigo-950 rounded-[40px] p-10 md:p-16 border border-indigo-900/50 shadow-2xl">
+          <div className="bg-indigo-900 rounded-[40px] p-10 md:p-16 border border-indigo-900/50 shadow-2xl">
 
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
@@ -328,7 +386,7 @@ const WebDevelopmentPage = () => {
       {/* CTA SECTION */}
       <section className="pb-24 px-6 md:px-12 lg:px-20 bg-slate-50">
         <div className="max-w-5xl mx-auto">
-          <div className="bg-indigo-950 rounded-[40px] px-8 py-20 text-center border border-indigo-900/50 shadow-2xl">
+          <div className="bg-indigo-900 rounded-[40px] px-8 py-20 text-center border border-indigo-900/50 shadow-2xl">
 
             <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white tracking-tight">
               Let's Build Something Amazing
