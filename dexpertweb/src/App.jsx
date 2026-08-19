@@ -7,7 +7,6 @@ import ScrollToTop from "./components/ScrollToTop";
 // Pages
 import Home from "./pages/Home";
 import Visa from "./pages/Visa";
-import WebDevelopment from "./pages/WebDevelopment";
 import DigitalProducts from "./pages/DigitalProducts";
 import DBlogs from "./pages/DBlogs";
 import Contact from "./pages/Contact";
@@ -28,7 +27,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/visa" element={<Visa />} />
-        <Route path="/web-development" element={<WebDevelopment />} />
         <Route path="/digital-products" element={<DigitalProducts />} />
         <Route path="/d-blogs" element={<DBlogs />} />
         <Route path="/graphic-design" element={<GraphicDesignProducts />} />
